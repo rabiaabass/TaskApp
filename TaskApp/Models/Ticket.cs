@@ -47,6 +47,36 @@ namespace TaskApp.Models
         public TicketType TicketType { get; set; }
 
 
+        /// <summary>
+        /// Girilen Subjectin karakter kontrolü için yazıldı.
+        /// </summary>
+        /// <param name="subject"></param>
+        public void SetSubject(string subject)
+        {
+            if (subject.Length > 50)
+            {
+                throw new Exception("50 karakterden fazla bir subject giremezsiniz. ");
+            }
+
+            this.Subject = subject;
+        }
+
+        /// <summary>
+        /// Girilen Description un karakter kontrolü için yazıldı. 
+        /// </summary>
+        /// <param name="description"></param>
+        public void SetDescription(string description)
+        {
+            if (description.Length > 500)
+            {
+                throw new Exception("500 karakterden fazla bir description giremezsiniz");
+            }
+
+            this.Description = description;
+        }
+
+
+
 
 
 
