@@ -15,9 +15,16 @@ namespace TaskApp.Models
         }
 
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
+        //public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        //{
 
+        //}
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=.;Database=TaskApp;uid=sa;pwd=1234;MultipleActiveResultSets=true");
+
+            base.OnConfiguring(optionsBuilder);
         }
 
 

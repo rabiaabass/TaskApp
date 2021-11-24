@@ -7,7 +7,7 @@ namespace TaskApp.Models
 {
     public class UnitManager
     {
-        public int ID { get; set; }
+        public string ID { get; set; } = Guid.NewGuid().ToString();
 
         public string Name { get; set; }
 

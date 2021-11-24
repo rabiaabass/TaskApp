@@ -15,6 +15,26 @@ namespace TaskApp.Models
         ReviewTicket = 4,
         CompletedTicket = 5
     }
+
+    public enum DifficultyLevel
+    {
+        VeryEasy = 1,
+        Easy = 2,
+        Medium = 3,
+        Hard = 4,
+        VeryHard = 5
+    }
+
+    public enum Rank
+    {
+        FirstTicket = 1,
+        SecondTicket = 2,
+        ThirdTicket = 3,
+        ForthTicket = 4,
+        FifthTicket = 5
+
+    }
+
     public class Ticket
     {
         public string ID { get; set; } = Guid.NewGuid().ToString();
@@ -25,8 +45,11 @@ namespace TaskApp.Models
         [Required(ErrorMessage = "Description alanı boş geçilemez")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Customer alanı boş geçilemez")]
+        
         public Customer Customer { get; set; }
+
+        public string CustomerID { get; set; } 
+
 
         public Employee Employee { get; set; }
 
@@ -40,9 +63,9 @@ namespace TaskApp.Models
 
         public DateTime CompletedDate { get; set; }
 
-        public string DifficultyLevel { get; set; }
+        public DifficultyLevel DifficultyLevel { get; set; }
 
-        public int Rank { get; set; }
+        public Rank Rank { get; set; }
 
         public TicketType TicketType { get; set; }
 

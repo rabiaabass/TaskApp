@@ -1,0 +1,21 @@
+﻿@page
+@model TaskApp.Pages.TicketPages.CreateTicketModel
+@{
+}
+
+
+<form method="post">
+    <input asp-for="TicketInput.Subject" />
+    <span asp-validation-for="TicketInput.Subject"></span>
+
+    <input asp-for="TicketInput.Description" />
+    <span asp-validation-for="TicketInput.Description"></span>
+
+    <select asp-for="TicketInput.CustomerID" asp-items="Model.SelectListItem" ></select>
+
+    <div>
+        <input type="submit" value="Save" asp-page-handler="Save" />
+    </div>
+
+
+</form>

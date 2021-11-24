@@ -10,8 +10,8 @@ using TaskApp.Models;
 namespace TaskApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211123145735_Third")]
-    partial class Third
+    [Migration("20211124170546_Forth")]
+    partial class Forth
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,10 +23,8 @@ namespace TaskApp.Migrations
 
             modelBuilder.Entity("TaskApp.Models.Customer", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -53,8 +51,8 @@ namespace TaskApp.Migrations
                     b.Property<string>("Surname")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UnitManagerID")
-                        .HasColumnType("int");
+                    b.Property<string>("UnitManagerID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ID");
 
@@ -77,15 +75,15 @@ namespace TaskApp.Migrations
                     b.Property<DateTime>("CompletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CustomerID")
-                        .HasColumnType("int");
+                    b.Property<string>("CustomerID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DifficultyLevel")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DifficultyLevel")
+                        .HasColumnType("int");
 
                     b.Property<string>("EmployeeID")
                         .HasColumnType("nvarchar(450)");
@@ -117,10 +115,8 @@ namespace TaskApp.Migrations
 
             modelBuilder.Entity("TaskApp.Models.UnitManager", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");

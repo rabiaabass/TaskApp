@@ -10,8 +10,8 @@ using TaskApp.Models;
 namespace TaskApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211123144131_Second")]
-    partial class Second
+    [Migration("20211124153035_Third")]
+    partial class Third
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,10 +23,8 @@ namespace TaskApp.Migrations
 
             modelBuilder.Entity("TaskApp.Models.Customer", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -53,8 +51,8 @@ namespace TaskApp.Migrations
                     b.Property<string>("Surname")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UnitManagerID")
-                        .HasColumnType("int");
+                    b.Property<string>("UnitManagerID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ID");
 
@@ -77,8 +75,9 @@ namespace TaskApp.Migrations
                     b.Property<DateTime>("CompletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CustomerID")
-                        .HasColumnType("int");
+                    b.Property<string>("CustomerID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -103,6 +102,9 @@ namespace TaskApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TicketType")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
 
                     b.HasIndex("CustomerID");
@@ -114,10 +116,8 @@ namespace TaskApp.Migrations
 
             modelBuilder.Entity("TaskApp.Models.UnitManager", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -146,7 +146,9 @@ namespace TaskApp.Migrations
                 {
                     b.HasOne("TaskApp.Models.Customer", "Customer")
                         .WithMany()
-                        .HasForeignKey("CustomerID");
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("TaskApp.Models.Employee", "Employee")
                         .WithMany()

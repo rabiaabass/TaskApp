@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TaskApp.Models;
 using TaskApp.Repositories;
+using TaskApp.Services;
 
 namespace TaskApp
 {
@@ -28,12 +29,13 @@ namespace TaskApp
         {
             services.AddRazorPages();
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            });
+            
 
             services.AddScoped<TicketRepository>();
+            services.AddScoped<CustomerRepository>();
+            services.AddScoped<EmployeeRepository>();
+            services.AddTransient<TicketServices>();
+
 
         }
 
