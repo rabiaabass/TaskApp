@@ -15,7 +15,7 @@ namespace TaskApp.Repositories
             _db = new ApplicationDbContext();
         }
 
-        public Customer Find(int ID)
+        public Customer Find(string ID)
         {
             return _db.Customers.Find(ID);
         }

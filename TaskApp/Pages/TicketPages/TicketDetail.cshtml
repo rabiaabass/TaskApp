@@ -1,0 +1,49 @@
+﻿@page "{id}"
+@model TaskApp.Pages.TicketPages.TicketDetailModel
+@{
+}
+
+<form>
+    <tr>
+        <td>
+            <input asp-for="@Model.TicketInput.Subject" type="text" placeholder="Subject"  />
+        </td>
+        <td>
+            <input asp-for="@Model.TicketInput.Description" placeholder="Description" />
+        </td>
+        <td>
+            <input asp-for="@Model.TicketInput.OpenDate" placeholder="Date of Created" />
+        </td>
+        <td>
+            <input asp-for="@Model.TicketInput.CustomerID" placeholder="Customer" />
+        </td>
+
+        <br>
+
+        <form>
+            <fieldset>
+                <legend>Difficulty Level</legend>
+                <input type="radio" value="VeryEasy">VeryEasy<br>
+                <input type="radio" value="Easy">Easy<br>
+                <input type="radio" value="Medium">Medium<br>
+                <input type="radio" value="Hard">Hard<br>
+                <input type="radio" value="VeryHard">VeryHard<br>
+                
+                <input type="submit" value="Seçimi Onayla">
+            </fieldset>
+        </form>
+        <form>
+            <fieldset>
+                <legend>Rank</legend>
+                <input type="radio" value="5">5<br>
+                <input type="radio" value="4">4<br>
+                <input type="radio" value="3">3<br>
+                <input type="radio" value="2">2<br>
+                <input type="radio" value="1">1<br>
+                <br>
+                <input type="submit" value="Seçimi Onayla">
+            </fieldset>
+        </form>
+    </tr>
+</form>
+

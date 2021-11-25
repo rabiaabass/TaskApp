@@ -45,6 +45,9 @@ namespace TaskApp.Pages.TicketPages
         {
             if (ModelState.IsValid)
             {
+                TicketInput.OpenDate = DateTime.Now;
+                TicketInput.TicketType = TicketType.OpenTicket;
+
                 tService.OpenTicket(TicketInput);
                 
             }

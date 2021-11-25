@@ -32,6 +32,9 @@ namespace TaskApp.Repositories
             return _db.Tickets.ToList();
         }
 
-
+        public Ticket Find(string id)
+        {
+            return _db.Tickets.Find(id);
+        }
     }
 }
