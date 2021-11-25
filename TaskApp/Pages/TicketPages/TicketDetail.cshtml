@@ -3,7 +3,9 @@
 @{
 }
 
-<form>
+@using TaskApp.Models
+
+<form id="1" method="post">
     <tr>
         <td>
             <input asp-for="@Model.TicketInput.Subject" type="text" placeholder="Subject"  />
@@ -16,34 +18,42 @@
         </td>
         <td>
             <input asp-for="@Model.TicketInput.CustomerID" placeholder="Customer" />
-        </td>
-
-        <br>
-
-        <form>
-            <fieldset>
-                <legend>Difficulty Level</legend>
-                <input type="radio" value="VeryEasy">VeryEasy<br>
-                <input type="radio" value="Easy">Easy<br>
-                <input type="radio" value="Medium">Medium<br>
-                <input type="radio" value="Hard">Hard<br>
-                <input type="radio" value="VeryHard">VeryHard<br>
-                
-                <input type="submit" value="Seçimi Onayla">
-            </fieldset>
-        </form>
-        <form>
-            <fieldset>
-                <legend>Rank</legend>
-                <input type="radio" value="5">5<br>
-                <input type="radio" value="4">4<br>
-                <input type="radio" value="3">3<br>
-                <input type="radio" value="2">2<br>
-                <input type="radio" value="1">1<br>
-                <br>
-                <input type="submit" value="Seçimi Onayla">
-            </fieldset>
-        </form>
+        </td>      
+        
     </tr>
 </form>
 
+<form id="2" method="post">
+
+    @*<fieldset>
+            <legend>Difficulty Level</legend>
+            <input type="radio" id="radio1" value="Level1">VeryEasy<br>
+            <input type="radio" id="radio2" value="Level2">Easy<br>
+            <input type="radio" id="radio3" value="Level3">Medium<br>
+            <input type="radio" id="radio4" value="Level4">Hard<br>
+            <input type="radio" id="radio5" value="Level5">VeryHard<br>
+
+            <input type="submit" value="Seçimi Onayla">
+        </fieldset>*@
+
+    @foreach (var item in Enum.GetValues(typeof(DifficultyLevel)))
+    {
+        @Html.RadioButtonFor(m => m.DifficultlyLevel, item) @item
+
+    }
+    <input type="submit" value="Seçimi Onayla" asp-page-handler="SetDifficultLevel">
+
+</form>
+
+<form id="3">
+    <fieldset>
+        <legend>Rank</legend>
+        <input type="radio" value="Rank5">5<br>
+        <input type="radio" value="Rank4">4<br>
+        <input type="radio" value="Rank3">3<br>
+        <input type="radio" value="Rank2">2<br>
+        <input type="radio" value="Rank1">1<br>
+        <br>
+        <input type="submit" value="Seçimi Onayla">
+    </fieldset>
+</form>

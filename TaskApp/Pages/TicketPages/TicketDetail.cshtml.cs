@@ -36,7 +36,7 @@ namespace TaskApp.Pages.TicketPages
         public string ID { get; set; }
 
         [BindProperty]
-        public List<Ticket> DifficultlyLevel { get; set; }
+        public DifficultyLevel  DifficultlyLevel { get; set; }
 
         [BindProperty]
         public List<Ticket> Rank { get; set; }
@@ -49,8 +49,13 @@ namespace TaskApp.Pages.TicketPages
             CustomerID = TicketInput.CustomerID.ToString();
             //CustomerName = cRepo.Find(ID).ToString();
 
+            
+
+            
 
 
+        }
+        public void OnPostSetDifficultLevel() {
 
         }
     }
