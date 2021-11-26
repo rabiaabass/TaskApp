@@ -41,13 +41,21 @@ namespace TaskApp.Services
             _ticketRepository.Add(ticket);
         }
 
-        public void UpdateRankAndDiffcultLevel(Ticket ticket)
+        public void UpdateRank(Ticket ticket, Rank rank )
         {
+            ticket.Rank = rank;   
             _ticketRepository.Update(ticket);
         }
-       
+
+        public void UpdateDifficultyLevel(Ticket ticket, DifficultyLevel difficultyLevel)
+        {
+            ticket.DifficultyLevel = difficultyLevel;
+            _ticketRepository.Update(ticket);
+        }
+
         public void UdateAsignedTckets(Ticket ticket)
         {
+            
             _ticketRepository.Update(ticket);
         }
 

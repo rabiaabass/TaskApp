@@ -53,6 +53,8 @@ namespace TaskApp.Models
 
         public Employee Employee { get; set; }
 
+        public string EmployeeID { get; set; }
+
         public DateTime OpenDate { get; set; }
 
         public DateTime ClosedDate { get; set; }

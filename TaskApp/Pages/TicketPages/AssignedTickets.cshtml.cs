@@ -38,7 +38,7 @@ namespace TaskApp.Pages.TicketPages
 
             foreach (var item in Tickets)
             {
-                if (item.TicketType == TicketType.AssignedTicket
+                if (item.TicketType == TicketType.AssignedTicket)
                 {
                     AssignedTickets.Add(item);
                 }

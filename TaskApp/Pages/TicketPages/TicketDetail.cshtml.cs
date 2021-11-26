@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TaskApp.Models;
@@ -64,7 +60,8 @@ namespace TaskApp.Pages.TicketPages
             if (ModelState.IsValid)
             {
                 TicketInput.DifficultyLevel = difficultyLevel;
-                tService.UpdateRankAndDiffcultLevel(TicketInput);
+                tService.UpdateDifficultyLevel(TicketInput,difficultyLevel);
+                
             }
             
         }
@@ -77,7 +74,7 @@ namespace TaskApp.Pages.TicketPages
             if (ModelState.IsValid)
             {
                 TicketInput.Rank = rank;
-                tService.UpdateRankAndDiffcultLevel(TicketInput);
+                tService.UpdateRank(TicketInput,rank);
             }
 
         }

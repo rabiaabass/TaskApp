@@ -38,7 +38,7 @@
 <form id="3" method="post" >
    
 
-    @foreach (var item in Enum.GetValues(typeof(DifficultyLevel)))
+    @foreach (var item in Enum.GetValues(typeof(Rank)))
     {
         @Html.RadioButtonFor(m => m.rank, item) @item
 
