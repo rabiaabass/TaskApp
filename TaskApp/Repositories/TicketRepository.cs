@@ -36,5 +36,11 @@ namespace TaskApp.Repositories
         {
             return _db.Tickets.Find(id);
         }
+
+        public void Update(Ticket ticket)
+        {
+            _db.Tickets.Update(ticket);
+            _db.SaveChanges();
+        }
     }
 }

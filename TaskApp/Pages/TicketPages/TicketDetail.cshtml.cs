@@ -36,11 +36,15 @@ namespace TaskApp.Pages.TicketPages
         public string ID { get; set; }
 
         [BindProperty]
-        public DifficultyLevel  DifficultlyLevel { get; set; }
+        public DifficultyLevel  difficultyLevel { get; set; }
 
         [BindProperty]
-        public List<Ticket> Rank { get; set; }
+        public Rank rank { get; set; }
 
+        /// <summary>
+        /// Open ticketlarýn listelendiði sayfada  herhangi bir open ticket ýn detail sayfasýna gitmek için butona basýldýðýnda o ticketýn id sini kullanarak OnGet methodu içinde Find ile o ticketý bulup, ticketin customer id sine ulaþtýk.
+        /// </summary>
+        /// <param name="id"></param>
         public void OnGet(string id)
         {
             ID = id;
@@ -49,13 +53,32 @@ namespace TaskApp.Pages.TicketPages
             CustomerID = TicketInput.CustomerID.ToString();
             //CustomerName = cRepo.Find(ID).ToString();
 
-            
-
-            
-
-
+     
         }
+
+        /// <summary>
+        /// Zorluk derecesi seçildikten sonra ticketý güncelleme iþlemi yapýldý.
+        /// </summary>
         public void OnPostSetDifficultLevel() {
+
+            if (ModelState.IsValid)
+            {
+                TicketInput.DifficultyLevel = difficultyLevel;
+                tService.UpdateRankAndDiffcultLevel(TicketInput);
+            }
+            
+        }
+
+        /// <summary>
+        /// Rank seçildikten sonra ticketý güncelleme iþlemi yapýldý.
+        /// </summary>
+        public void OnPostSetRank()
+        {
+            if (ModelState.IsValid)
+            {
+                TicketInput.Rank = rank;
+                tService.UpdateRankAndDiffcultLevel(TicketInput);
+            }
 
         }
     }

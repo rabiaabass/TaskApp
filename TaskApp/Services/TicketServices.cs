@@ -38,15 +38,18 @@ namespace TaskApp.Services
                 throw new Exception("500 karakterden fazla bir description giremezsiniz");
             }
 
-           
-
-
             _ticketRepository.Add(ticket);
         }
 
-        
+        public void UpdateRankAndDiffcultLevel(Ticket ticket)
+        {
+            _ticketRepository.Update(ticket);
+        }
        
-
+        public void UdateAsignedTckets(Ticket ticket)
+        {
+            _ticketRepository.Update(ticket);
+        }
 
 
     }
