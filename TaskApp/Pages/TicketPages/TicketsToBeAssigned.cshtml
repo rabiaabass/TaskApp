@@ -8,28 +8,28 @@
     @for (int i = 0; i < Model.ToBeAssigned.Count; i++)
     {
 
-        <tr>
-            <td>
-                <input asp-for="ToBeAssigned[i].Subject " type="text" placeholder="Subject" />
-            </td>
-            <td>
-                <input asp-for="ToBeAssigned[i].Description" placeholder="Description" />
-            </td>
-            <td>
-                <input asp-for="ToBeAssigned[i].DifficultyLevel " placeholder="Difficulty Level" />
+    <tr>
+        <td>
+            <input asp-for="ToBeAssigned[i].Subject " type="text" placeholder="Subject" />
+        </td>
+        <td>
+            <input asp-for="ToBeAssigned[i].Description" placeholder="Description" />
+        </td>
+        <td>
+            <input asp-for="ToBeAssigned[i].DifficultyLevel " placeholder="Difficulty Level" />
 
-            </td>
-            <td>
-                <input asp-for="ToBeAssigned[i].Rank " placeholder="Rank" />
-            </td>
+        </td>
+        <td>
+            <input asp-for="ToBeAssigned[i].Rank " placeholder="Rank" />
+        </td>
 
-        </tr>
+    </tr>
 
         <select asp-for="TicketInput.Employee.Name" asp-items="Model.SelectListItem"></select>
         
-            <td>
-                <input type="submit" value="Save" asp-page-handler="Save" />
-            </td>
+            
+             <input type="submit" value="Save" asp-page-handler="Save" />
+           
         
 
     }

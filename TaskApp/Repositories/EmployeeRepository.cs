@@ -19,5 +19,11 @@ namespace TaskApp.Repositories
         {
             return _db.Employees.ToList();
         }
+
+        public void Update(Employee employee)
+        {
+            _db.Employees.Update(employee);
+            _db.SaveChanges();
+        }
     }
 }

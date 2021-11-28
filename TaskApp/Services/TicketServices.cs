@@ -10,10 +10,12 @@ namespace TaskApp.Services
     public class TicketServices
     {
         TicketRepository _ticketRepository;
+        EmployeeRepository _employeeRepository;
 
-        public TicketServices(TicketRepository ticketRepository)
+        public TicketServices(TicketRepository ticketRepository, EmployeeRepository employeeRepository)
         {
             _ticketRepository = ticketRepository;
+            _employeeRepository = employeeRepository;
         }
 
         public void OpenTicket(Ticket ticket)
@@ -57,6 +59,47 @@ namespace TaskApp.Services
         {
             
             _ticketRepository.Update(ticket);
+        }
+
+        public void SetWorkHours(Employee employee, Ticket ticket)
+        {
+
+            int workhour;
+
+            if ((int)ticket.Rank == 5)
+            {
+                workhour = 8 * 5;
+            }
+
+            if ((int)ticket.Rank == 4)
+            {
+                workhour = 8 * 4;
+            }
+            if ((int)ticket.Rank == 3)
+            {
+                workhour = 8 * 3;
+            }
+            if ((int)ticket.Rank == 2)
+            {
+                workhour = 8 * 2;
+            }
+            if ((int)ticket.Rank == 1)
+            {
+                workhour = 8 * 1;
+            }
+
+            workhour = employee.WorkHours;
+
+            _employeeRepository.Update(employee);
+
+
+        }
+
+        public void UpdateTicketEmployeeID(Ticket ticket, string id)
+        {
+            ticket.EmployeeID = id;
+            _ticketRepository.Update(ticket);
+
         }
 
 

@@ -55,13 +55,16 @@ namespace TaskApp.Pages.TicketPages
 
             foreach (var item in Tickets)
             {
-                if (item.TicketType == TicketType.OpenTicket && item.DifficultyLevel != null && item.Rank != null)
+                if (item.TicketType == TicketType.OpenTicket)
                 {
                     ToBeAssigned.Add(item);
                 }
             }
         }
 
+        /// <summary>
+        /// Save yapýldýðý zaman atama tarihini ve TicketType Assigned Ticket olduðunu kayýt eder.
+        /// </summary>
         public void OnPostSave()
         {
             if (ModelState.IsValid)

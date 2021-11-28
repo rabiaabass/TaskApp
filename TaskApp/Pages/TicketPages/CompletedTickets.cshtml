@@ -1,0 +1,31 @@
+﻿@page
+@model TaskApp.Pages.TicketPages.CompletedTicketsModel
+@{
+}
+
+
+<form method="post">
+
+    @for (int i = 0; i < Model.CompletedTickets.Count; i++)
+    {
+        <div>
+            <tr>
+                <td>
+                    <input asp-for="CompletedTickets[i].Subject" type="text" placeholder="Subject" />
+                </td>
+                <td>
+                    <input asp-for="CompletedTickets[i].Description" type="text" placeholder="Description" />
+                </td>
+                <td>
+                    <input asp-for="CompletedTickets[i].Employee.ID" type="text" placeholder="Description" />
+                </td>
+                <td>
+                    <input asp-for="CompletedTickets[i].ReviewDate " placeholder="Date of Completed" />
+
+                </td>
+            </tr>
+        </div>
+       
+    }
+
+</form>

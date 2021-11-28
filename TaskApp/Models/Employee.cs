@@ -16,6 +16,8 @@ namespace TaskApp.Models
 
         public string Email { get; set; }
 
+        public int WorkHours { get; set; }
+
         public UnitManager UnitManager { get; set; }
 
     }

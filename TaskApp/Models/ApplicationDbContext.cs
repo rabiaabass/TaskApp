@@ -27,6 +27,8 @@ namespace TaskApp.Models
             base.OnConfiguring(optionsBuilder);
         }
 
+        // DESKTOP-Q8F0E5D\SQLEXPRESS
+        //Server=.;Database=TaskApp;uid=sa;pwd=1234;MultipleActiveResultSets=true
 
         public DbSet<Employee> Employees { get; set; }
 

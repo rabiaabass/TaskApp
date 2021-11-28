@@ -17,12 +17,14 @@ namespace TaskApp.Pages.TicketPages
         private readonly CustomerRepository cRepo;
         private readonly TicketRepository tRepo;
         private readonly TicketServices tService;
+        private readonly SendMailService sMailService;
 
-        public CreateTicketModel(TicketRepository ticketRepository, TicketServices ticketServices, CustomerRepository customerRepository)
+        public CreateTicketModel(TicketRepository ticketRepository, TicketServices ticketServices, CustomerRepository customerRepository, SendMailService sendMailService)
         {
             tRepo = ticketRepository;
             tService = ticketServices;
             cRepo = customerRepository;
+            sMailService = sendMailService;
         }
 
         [BindProperty]
@@ -30,8 +32,9 @@ namespace TaskApp.Pages.TicketPages
 
         public List<SelectListItem> SelectListItem { get; private set; } = new List<SelectListItem>();
 
+        [BindProperty]
+        public Employee EmployeeInput { get; set; }
 
-        
 
         public void OnGet()
         {
@@ -49,7 +52,24 @@ namespace TaskApp.Pages.TicketPages
                 TicketInput.TicketType = TicketType.OpenTicket;
 
                 tService.OpenTicket(TicketInput);
+
+
+
                 
+
+                var result = tRepo.Find(TicketInput.ID);
+
+                if (result != null)
+                {
+                    ViewData["Message"] = "Kayýt Baþarýlý";
+
+                  // sMailService.SendEmail(from: "bassrabiaa@gmail.com", to: , message: $"{TicketInput.ID}", subject: "Ticket ID");
+
+                }
+                else
+                {
+                    ViewData["Message"] = "Tekrar Dene";
+                }
             }
         }
     }

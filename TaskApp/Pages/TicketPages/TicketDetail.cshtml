@@ -6,6 +6,7 @@
 @using TaskApp.Models
 
 <form id="1" method="post">
+
     <tr>
         <td>
             <input asp-for="@Model.TicketInput.Subject" type="text" placeholder="Subject"  />
@@ -25,24 +26,29 @@
 
 <form id="2" method="post">
 
+    @Html.HiddenFor(x => x.ID, ViewData["ID"])
 
+    <p>Lütfen zorluk derecesini seçiniz.</p>
     @foreach (var item in Enum.GetValues(typeof(DifficultyLevel)))
     {
-        @Html.RadioButtonFor(m => m.difficultyLevel, item) @item 
+        @Html.RadioButtonFor(m => m.difficultyLevel, item) @item
 
     }
     <input type="submit" value="Seçimi Onayla" asp-page-handler="SetDifficultLevel">
 
 </form>
 
-<form id="3" method="post" >
-   
+<form id="3" method="post">
 
+    @Html.HiddenFor(x => x.ID, ViewData["ID"])
+
+    <p>Lütfen önemlilik derecesini seçiniz.</p>
     @foreach (var item in Enum.GetValues(typeof(Rank)))
     {
         @Html.RadioButtonFor(m => m.rank, item) @item
 
     }
+
     <input type="submit" value="Seçimi Onayla" asp-page-handler="SetRank">
 
 </form>
